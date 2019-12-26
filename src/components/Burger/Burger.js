@@ -4,7 +4,7 @@ import BurgerIngredient from './BurgerIngredient/BurgerIngredient';
 
 const burger = (props) => {
 
-    const ingredients = Object.keys(props.ingredient).map(igkey => {
+    let ingredients = Object.keys(props.ingredient).map(igkey => {
         // 取得物件屬性名稱 igkey
         // console.log(igkey)
         // console.log('[ingredient[igkey]]', props.ingredient[igkey])
@@ -15,8 +15,14 @@ const burger = (props) => {
         return [...Array(props.ingredient[igkey])].map((_, i) => {
             return <BurgerIngredient key={`${igkey}${i}`} type={igkey} />
         })
-    })
+    }).reduce((acc, cur) => {
+        return acc.concat(cur)
+    }, [])
     console.log(ingredients);
+
+    if (ingredients.length === 0) {
+        ingredients = <p>請加入配料</p>
+    }
 
     return (
         <div className={classes.Burger}>
