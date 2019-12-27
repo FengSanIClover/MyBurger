@@ -17,6 +17,8 @@ const orderSummary = (props) => {
                 }
             </ul>
             <p>繼續結帳?</p>
+            <button>取消</button>
+            <button>結帳</button>
         </Aux>
     )
 }
