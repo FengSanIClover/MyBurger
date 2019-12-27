@@ -17,6 +17,7 @@ const orderSummary = (props) => {
                     ingredientSummary
                 }
             </ul>
+            <p><strong>總金額為:{props.price.toFixed(2)}</strong></p>
             <p>繼續結帳?</p>
             <Button btnType="Danger" clicked={props.purchaseCancel}>取消</Button>
             <Button btnType="Success" clicked={props.purchaseContiune}>結帳</Button>
